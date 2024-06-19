@@ -35,7 +35,7 @@ class HomePage extends StatelessWidget{
                return ListTile(
                  title: Text(postController.postList[index].title),
                  onTap: (){
-                   Get.to (()=> DetailsPage(post: postController.postList[index]));
+                   Get.to (()=> DetailsPage(postId: postController.postList[index].id));
                  },
                );
              }

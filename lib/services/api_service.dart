@@ -23,13 +23,12 @@ class ApiService{
     }
   }
 
-  static Future<List<Post>> fetchPostDetails(int id) async{
+  static Future<Post> fetchPostDetails(int id) async{
 
     final response = await http.get(Uri.parse('$url/$id'));
     if(response.statusCode == 200){
 
-      List jsonResponse = json.decode(response.body);
-      return jsonResponse.map((post) => Post.fromJson(post)).toList();
+      return Post.fromJson(json.decode(response.body));
 
     }
     else{
